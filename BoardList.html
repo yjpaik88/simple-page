@@ -9,13 +9,36 @@
       border-collapse: collapse;
     }
     td {
-      border: 1px solid;
+      border: solid 1px;
     }
   </style>
 </head>
 <body>
   <div>
     <span>user</span>
+    <button>sign out</button>
   </div>
+
+  <table id="board"></table>
+  <script>
+    const articles = [
+      {'number': '1','title': '오늘의 할일은 내일로', 'writer': 'yoondi', 'reg_dt': '2023-01-01', 'readcount': '1'}
+    ];
+    const headers =[
+      'title', 'writer', 'reg_dt', 'readcount'
+    ];
+
+    const board = document.getElementById('board');
+
+    for (const article of articles) {
+      const tr = document.createElement('tr');
+      for (const h of headers) {
+        const td = document.createElement('td');
+        td.innerHTML = article[h];
+        tr.appendChild(td);
+      }
+      board.appendChild(tr);
+    }
+  </script>
 </body>
 </html>
